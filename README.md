@@ -15,7 +15,8 @@ This project is a low power configurable multi-clock digital system implemented 
 - CDC Management: Safely handles different clock domains to prevent data loss.
 
 ## System Architecture
-<img width="867" height="525" alt="image" src="https://github.com/user-attachments/assets/b3cc5cb9-1e7f-4682-b582-facfd922d2db" />
+<img width="1070" height="628" alt="image" src="https://github.com/user-attachments/assets/e6769016-90c4-41d4-b9cb-eca18c8f7e0c" />
+
 
 The top-level module (SYS_TOP) integrates several distinct hardware components:
 
