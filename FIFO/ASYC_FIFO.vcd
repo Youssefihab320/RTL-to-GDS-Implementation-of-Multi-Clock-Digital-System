@@ -1,0 +1,874 @@
+$date
+	Mon Sep 08 22:58:10 2025
+$end
+$version
+	ModelSim Version 10.5b
+$end
+$timescale
+	1ps
+$end
+
+$scope module ASYC_FIFO_tb $end
+$var parameter 32 ! DATA_WIDTH_tb $end
+$var parameter 32 " DEPTH_tb $end
+$var parameter 32 # ADDR_WIDTH_tb $end
+$var parameter 32 $ W_CLK_PERIOD $end
+$var parameter 0 % R_CLK_PERIOD $end
+$var reg 1 & W_CLK_tb $end
+$var reg 1 ' W_RST_tb $end
+$var reg 1 ( W_INC_tb $end
+$var reg 1 ) R_CLK_tb $end
+$var reg 1 * R_RST_tb $end
+$var reg 1 + R_INC_tb $end
+$var reg 8 , WR_DATA_tb [7:0] $end
+$var wire 1 - FULL_tb $end
+$var wire 1 . EMPTY_tb $end
+$var wire 1 / RD_DATA_tb [7] $end
+$var wire 1 0 RD_DATA_tb [6] $end
+$var wire 1 1 RD_DATA_tb [5] $end
+$var wire 1 2 RD_DATA_tb [4] $end
+$var wire 1 3 RD_DATA_tb [3] $end
+$var wire 1 4 RD_DATA_tb [2] $end
+$var wire 1 5 RD_DATA_tb [1] $end
+$var wire 1 6 RD_DATA_tb [0] $end
+$var integer 32 7 wr_index $end
+$var integer 32 8 rd_index $end
+
+$scope task w_initialize $end
+$upscope $end
+
+$scope task w_reset $end
+$upscope $end
+
+$scope task write_data $end
+$var reg 4 9 repeat_count_wr [3:0] $end
+$upscope $end
+
+$scope task rd_initialize $end
+$upscope $end
+
+$scope task rd_reset $end
+$upscope $end
+
+$scope task read_data $end
+$var reg 4 : repeat_count_rd [3:0] $end
+$upscope $end
+
+$scope module DUT $end
+$var parameter 32 ; DATA_WIDTH $end
+$var parameter 32 < DEPTH $end
+$var parameter 32 = ADDR_WIDTH $end
+$var wire 1 > W_CLK $end
+$var wire 1 ? W_RST $end
+$var wire 1 @ W_INC $end
+$var wire 1 A R_CLK $end
+$var wire 1 B R_RST $end
+$var wire 1 C R_INC $end
+$var wire 1 D WR_DATA [7] $end
+$var wire 1 E WR_DATA [6] $end
+$var wire 1 F WR_DATA [5] $end
+$var wire 1 G WR_DATA [4] $end
+$var wire 1 H WR_DATA [3] $end
+$var wire 1 I WR_DATA [2] $end
+$var wire 1 J WR_DATA [1] $end
+$var wire 1 K WR_DATA [0] $end
+$var wire 1 - FULL $end
+$var wire 1 . EMPTY $end
+$var wire 1 / RD_DATA [7] $end
+$var wire 1 0 RD_DATA [6] $end
+$var wire 1 1 RD_DATA [5] $end
+$var wire 1 2 RD_DATA [4] $end
+$var wire 1 3 RD_DATA [3] $end
+$var wire 1 4 RD_DATA [2] $end
+$var wire 1 5 RD_DATA [1] $end
+$var wire 1 6 RD_DATA [0] $end
+$var wire 1 L W_ADDR [2] $end
+$var wire 1 M W_ADDR [1] $end
+$var wire 1 N W_ADDR [0] $end
+$var wire 1 O R_ADDR [2] $end
+$var wire 1 P R_ADDR [1] $end
+$var wire 1 Q R_ADDR [0] $end
+$var wire 1 R rptr_in [3] $end
+$var wire 1 S rptr_in [2] $end
+$var wire 1 T rptr_in [1] $end
+$var wire 1 U rptr_in [0] $end
+$var wire 1 V wptr_in [3] $end
+$var wire 1 W wptr_in [2] $end
+$var wire 1 X wptr_in [1] $end
+$var wire 1 Y wptr_in [0] $end
+$var wire 1 Z rptr_out [3] $end
+$var wire 1 [ rptr_out [2] $end
+$var wire 1 \ rptr_out [1] $end
+$var wire 1 ] rptr_out [0] $end
+$var wire 1 ^ wptr_out [3] $end
+$var wire 1 _ wptr_out [2] $end
+$var wire 1 ` wptr_out [1] $end
+$var wire 1 a wptr_out [0] $end
+
+$scope module mem $end
+$var parameter 32 b DATA_WIDTH $end
+$var parameter 32 c DEPTH $end
+$var parameter 32 d ADDR_WIDTH $end
+$var wire 1 > w_clk $end
+$var wire 1 ? w_rst $end
+$var wire 1 - FULL $end
+$var wire 1 @ w_inc $end
+$var wire 1 L w_addr [2] $end
+$var wire 1 M w_addr [1] $end
+$var wire 1 N w_addr [0] $end
+$var wire 1 O r_addr [2] $end
+$var wire 1 P r_addr [1] $end
+$var wire 1 Q r_addr [0] $end
+$var wire 1 D w_data [7] $end
+$var wire 1 E w_data [6] $end
+$var wire 1 F w_data [5] $end
+$var wire 1 G w_data [4] $end
+$var wire 1 H w_data [3] $end
+$var wire 1 I w_data [2] $end
+$var wire 1 J w_data [1] $end
+$var wire 1 K w_data [0] $end
+$var wire 1 / r_data [7] $end
+$var wire 1 0 r_data [6] $end
+$var wire 1 1 r_data [5] $end
+$var wire 1 2 r_data [4] $end
+$var wire 1 3 r_data [3] $end
+$var wire 1 4 r_data [2] $end
+$var wire 1 5 r_data [1] $end
+$var wire 1 6 r_data [0] $end
+$var wire 1 e w_clken $end
+$var integer 32 f i $end
+$upscope $end
+
+$scope module df1_w $end
+$var parameter 32 g ADDR_WIDTH $end
+$var wire 1 > clk $end
+$var wire 1 ? rst $end
+$var wire 1 R data_in [3] $end
+$var wire 1 S data_in [2] $end
+$var wire 1 T data_in [1] $end
+$var wire 1 U data_in [0] $end
+$var reg 4 h data_out [3:0] $end
+$var reg 4 i ff1 [3:0] $end
+$upscope $end
+
+$scope module df2_r $end
+$var parameter 32 j ADDR_WIDTH $end
+$var wire 1 A clk $end
+$var wire 1 B rst $end
+$var wire 1 V data_in [3] $end
+$var wire 1 W data_in [2] $end
+$var wire 1 X data_in [1] $end
+$var wire 1 Y data_in [0] $end
+$var reg 4 k data_out [3:0] $end
+$var reg 4 l ff1 [3:0] $end
+$upscope $end
+
+$scope module WR $end
+$var parameter 32 m ADDR_WIDTH $end
+$var wire 1 @ w_inc $end
+$var wire 1 > w_clk $end
+$var wire 1 ? w_rst $end
+$var wire 1 Z gray_rptr [3] $end
+$var wire 1 [ gray_rptr [2] $end
+$var wire 1 \ gray_rptr [1] $end
+$var wire 1 ] gray_rptr [0] $end
+$var wire 1 V gray_wptr [3] $end
+$var wire 1 W gray_wptr [2] $end
+$var wire 1 X gray_wptr [1] $end
+$var wire 1 Y gray_wptr [0] $end
+$var wire 1 L w_addr [2] $end
+$var wire 1 M w_addr [1] $end
+$var wire 1 N w_addr [0] $end
+$var wire 1 - FULL $end
+$var reg 4 n bin_wptr [3:0] $end
+$upscope $end
+
+$scope module RD $end
+$var parameter 32 o ADDR_WIDTH $end
+$var wire 1 A r_clk $end
+$var wire 1 B r_rst $end
+$var wire 1 C r_inc $end
+$var wire 1 ^ gray_wptr [3] $end
+$var wire 1 _ gray_wptr [2] $end
+$var wire 1 ` gray_wptr [1] $end
+$var wire 1 a gray_wptr [0] $end
+$var wire 1 R gray_rptr [3] $end
+$var wire 1 S gray_rptr [2] $end
+$var wire 1 T gray_rptr [1] $end
+$var wire 1 U gray_rptr [0] $end
+$var wire 1 O r_addr [2] $end
+$var wire 1 P r_addr [1] $end
+$var wire 1 Q r_addr [0] $end
+$var wire 1 . EMPTY $end
+$var reg 4 p bin_rptr [3:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0&
+0'
+0(
+0)
+0*
+0+
+b0 ,
+b0 h
+b0 i
+b0 k
+b0 l
+b0 n
+b0 p
+bx 9
+bx :
+b1000 !
+b1000 "
+b11 #
+b1010 $
+b1000 ;
+b1000 <
+b11 =
+b1000 b
+b1000 c
+b11 d
+b11 g
+b11 j
+b11 m
+b11 o
+r25 %
+b0 7
+b0 8
+b1000 f
+0-
+1.
+06
+05
+04
+03
+02
+01
+00
+0/
+0N
+0M
+0L
+0Q
+0P
+0O
+0U
+0T
+0S
+0R
+0Y
+0X
+0W
+0V
+0]
+0\
+0[
+0Z
+0a
+0`
+0_
+0^
+0e
+0K
+0J
+0I
+0H
+0G
+0F
+0E
+0D
+0C
+0B
+0A
+0@
+0?
+0>
+$end
+#5000
+1&
+1>
+b0 f
+b1 f
+b10 f
+b11 f
+b100 f
+b101 f
+b110 f
+b111 f
+b1000 f
+#10000
+1'
+b1010 9
+0&
+1?
+0>
+#12500
+1)
+1A
+#15000
+1&
+1>
+#20000
+0&
+0>
+#25000
+1*
+b1010 :
+0)
+1&
+1B
+0A
+1>
+#30000
+0&
+0>
+b1 ,
+1(
+1K
+1@
+1e
+#35000
+1&
+1>
+b1 7
+b1 n
+1Y
+1N
+16
+#37500
+1)
+1A
+b1 l
+#40000
+0&
+0>
+b10 ,
+0K
+1J
+#45000
+1&
+1>
+b10 7
+b10 n
+1X
+0N
+1M
+#50000
+0)
+0&
+0A
+0>
+b11 ,
+1K
+#55000
+1&
+1>
+b11 7
+b11 n
+0Y
+1N
+#60000
+0&
+0>
+b100 ,
+0K
+0J
+1I
+#62500
+1)
+1A
+b10 l
+b1 k
+1a
+0.
+#65000
+1&
+1>
+b100 7
+b100 n
+1W
+0N
+0M
+1L
+#70000
+0&
+0>
+b101 ,
+1K
+#75000
+1+
+0)
+1&
+1C
+0A
+1>
+b101 7
+b101 n
+1Y
+1N
+#80000
+0&
+0>
+b110 ,
+0K
+1J
+#85000
+1&
+1>
+b110 7
+b110 n
+0X
+0N
+1M
+#87500
+1)
+1A
+b1 8
+b101 l
+b10 k
+b1 p
+1U
+1Q
+0a
+1`
+06
+15
+#90000
+0&
+0>
+b111 ,
+1K
+#95000
+1&
+1>
+b111 7
+b1 i
+b111 n
+0Y
+1N
+#100000
+0)
+0&
+0A
+0>
+b1000 ,
+0K
+0J
+0I
+1H
+#105000
+1&
+1>
+b0 7
+b1 h
+b1000 n
+1V
+0N
+0M
+0L
+1]
+#110000
+0&
+0>
+b1001 ,
+1K
+#112500
+1)
+1A
+b10 8
+b1100 l
+b101 k
+b10 p
+1T
+0Q
+1P
+1a
+0`
+1_
+16
+#115000
+1&
+1>
+b1 7
+b11 i
+b1001 n
+1Y
+1N
+1-
+0e
+#120000
+0&
+0>
+b1010 ,
+0K
+1J
+#125000
+0)
+1&
+0A
+1>
+b11 h
+1\
+0-
+1e
+#130000
+0&
+0>
+0(
+0@
+0e
+#135000
+1&
+1>
+#137500
+1)
+1A
+b11 8
+b1101 l
+b1100 k
+b11 p
+0U
+1Q
+0a
+1^
+06
+05
+14
+#140000
+0&
+0>
+#145000
+1&
+1>
+b10 i
+#150000
+0)
+0&
+0A
+0>
+#155000
+1&
+1>
+b10 h
+0]
+#160000
+0&
+0>
+#162500
+1)
+1A
+b100 8
+b1101 k
+b100 p
+1S
+0Q
+0P
+1O
+1a
+16
+#165000
+1&
+1>
+b110 i
+#170000
+0&
+0>
+#175000
+0)
+1&
+0A
+1>
+b110 h
+1[
+#180000
+0&
+0>
+#185000
+1&
+1>
+#187500
+1)
+1A
+b101 8
+b101 p
+1U
+1Q
+06
+15
+#190000
+0&
+0>
+#195000
+1&
+1>
+b111 i
+#200000
+0)
+0&
+0A
+0>
+#205000
+1&
+1>
+b111 h
+1]
+#210000
+0&
+0>
+#212500
+1)
+1A
+b110 8
+b110 p
+0T
+0Q
+1P
+16
+#215000
+1&
+1>
+b101 i
+#220000
+0&
+0>
+#225000
+0)
+1&
+0A
+1>
+b101 h
+0\
+#230000
+0&
+0>
+#235000
+1&
+1>
+#237500
+1)
+1A
+b111 8
+b111 p
+0U
+1Q
+06
+05
+04
+13
+#240000
+0&
+0>
+#245000
+1&
+1>
+b100 i
+#250000
+0)
+0&
+0A
+0>
+#255000
+1&
+1>
+b100 h
+0]
+#260000
+0&
+0>
+#262500
+1)
+1A
+b0 8
+b1000 p
+1R
+0Q
+0P
+0O
+16
+#265000
+1&
+1>
+b1100 i
+#270000
+0&
+0>
+#275000
+0)
+1&
+0A
+1>
+b1100 h
+1Z
+#280000
+0&
+0>
+#285000
+1&
+1>
+#287500
+1)
+1A
+b1 8
+b1001 p
+1U
+1Q
+1.
+06
+15
+03
+#290000
+0&
+0>
+#295000
+1&
+1>
+b1101 i
+#300000
+0)
+0&
+0A
+0>
+#305000
+1&
+1>
+b1101 h
+1]
+#310000
+0&
+0>
+#312500
+1)
+1A
+b10 8
+#315000
+1&
+1>
+#320000
+0&
+0>
+#325000
+0)
+1&
+0A
+1>
+0+
+0C
+#330000
+0&
+0>
+#335000
+1&
+1>
+#337500
+1)
+1A
+#340000
+0&
+0>
+#345000
+1&
+1>
+#350000
+0)
+0&
+0A
+0>
+#355000
+1&
+1>
+#360000
+0&
+0>
+#362500
+1)
+1A
+#365000
+1&
+1>
+#370000
+0&
+0>
+#375000
+0)
+1&
+0A
+1>
+#380000
+0&
+0>
+#385000
+1&
+1>
+#387500
+1)
+1A
+#390000
+0&
+0>
+#395000
+1&
+1>
+#400000
+0)
+0&
+0A
+0>
+#405000
+1&
+1>
+#410000
+0&
+0>
+#412500
+1)
+1A
+#415000
+1&
+1>
+#420000
+0&
+0>
+#425000
+0)
+1&
+0A
+1>
+#430000
+0&
+0>
+#435000
+1&
+1>
+#437500
+1)
+1A
+#440000
+0&
+0>
+#445000
+1&
+1>
+#450000
+0)
+0&
+0A
+0>
+#455000
+1&
+1>
+#460000
+0&
+0>
+#462500
+1)
+1A
+#465000
+1&
+1>
+#470000
+0&
+0>

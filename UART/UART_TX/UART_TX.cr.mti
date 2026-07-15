@@ -1,0 +1,43 @@
+{D:/Digital Design/El Temsah/System/UART/UART_TX/uart_tx_top.v} {1 {vlog -work work -stats=none {D:/Digital Design/El Temsah/System/UART/UART_TX/uart_tx_top.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module uart_tx_top
+
+Top level modules:
+	uart_tx_top
+
+} {} {}} {D:/Digital Design/El Temsah/System/UART/UART_TX/mux.v} {1 {vlog -work work -stats=none {D:/Digital Design/El Temsah/System/UART/UART_TX/mux.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module mux
+
+Top level modules:
+	mux
+
+} {} {}} {D:/Digital Design/El Temsah/System/UART/UART_TX/serializer.v} {1 {vlog -work work -stats=none {D:/Digital Design/El Temsah/System/UART/UART_TX/serializer.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module serializer
+
+Top level modules:
+	serializer
+
+} {} {}} {D:/Digital Design/El Temsah/System/UART/UART_TX/uart_tx_top_tb.v} {1 {vlog -work work -stats=none {D:/Digital Design/El Temsah/System/UART/UART_TX/uart_tx_top_tb.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module uart_tx_top_tb
+
+Top level modules:
+	uart_tx_top_tb
+
+} {} {}} {D:/Digital Design/El Temsah/System/UART/UART_TX/parity_calc.v} {1 {vlog -work work -stats=none {D:/Digital Design/El Temsah/System/UART/UART_TX/parity_calc.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module parity_calc
+
+Top level modules:
+	parity_calc
+
+} {} {}} {D:/Digital Design/El Temsah/System/UART/UART_TX/uart_fsm.sv} {1 {vlog -work work -sv -stats=none {D:/Digital Design/El Temsah/System/UART/UART_TX/uart_fsm.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module uart_fsm
+
+Top level modules:
+	uart_fsm
+
+} {} {}}

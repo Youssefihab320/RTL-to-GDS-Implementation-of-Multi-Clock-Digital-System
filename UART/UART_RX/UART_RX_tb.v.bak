@@ -1,0 +1,189 @@
+`timescale 1ns / 1ps
+
+module UART_RX_tb ();
+
+    // DUT Inputs
+    reg CLK_tb;
+    reg RST_tb;
+    reg RX_IN_tb;
+    reg [5:0] Prescale_tb;
+    reg PAR_EN_tb;
+    reg PAR_TYP_tb;
+
+    // DUT Outputs
+    wire data_valid_tb;
+    wire [7:0] P_DATA_tb;
+
+    // Checking Operation regs
+    reg [2:0] operation_count;
+    reg TX_CLK;
+
+    // Clock Parameters
+    parameter TX_CLK_PERIOD  = 8680;
+    parameter PRESCALE_VAL = 8;
+    parameter RX_CLK_PERIOD = TX_CLK_PERIOD / PRESCALE_VAL;
+
+    // Clock Generation
+    always #(RX_CLK_PERIOD / 2) CLK_tb = ~ CLK_tb;
+    always #(TX_CLK_PERIOD / 2) TX_CLK = ~ TX_CLK;
+
+// Instantiating the DUT
+UART_RX DUT (
+                .CLK(CLK_tb),
+                .RST(RST_tb),
+                .RX_IN(RX_IN_tb),
+                .Prescale(Prescale_tb),
+                .PAR_EN(PAR_EN_tb),
+                .PAR_TYP(PAR_TYP_tb),
+                .data_valid(data_valid_tb),
+                .P_DATA(P_DATA_tb)
+);
+
+initial 
+    begin
+        // System Functions
+        $dumpfile("UART_RX.vcd") ;       
+        $dumpvars;
+        
+        // Starting Simulation
+        $display("----------------------------");               // Separator to indicate Simulation start
+        $display("Starting Simulation for UART_RX");
+        $display("Prescale Value = %0d",Prescale_tb);
+
+        // Initialize signals
+        initialize();
+
+        // Reset 
+        reset();
+
+        // Test Case 1
+        $display("Test Case 1: No Parity with Data 0x26");      // 0010 0110
+        send_uart_frame(8'h26, 1'b0, 1'b0, 1'b0, 1'b0);
+        
+        #TX_CLK_PERIOD;
+
+        // Test Case 2
+        $display("Test Case 2: Even Parity with Data 0x73");      // 0111 0011
+        send_uart_frame(8'h73, 1'b1, 1'b0, 1'b0, 1'b0);
+        
+        #TX_CLK_PERIOD;
+        $stop;
+    end
+
+
+// Tasks
+task initialize;
+    begin
+        TX_CLK = 0;
+        CLK_tb = 0;
+        RX_IN_tb = 1;
+        PAR_EN_tb = 0;
+        PAR_TYP_tb = 0;
+        Prescale_tb = PRESCALE_VAL;
+        operation_count = 0;
+    end
+endtask
+
+task reset;
+    begin
+       RST_tb = 1'b1;
+       #RX_CLK_PERIOD;
+       RST_tb = 1'b0;
+       #RX_CLK_PERIOD;
+       RST_tb = 1'b1;
+       if (P_DATA_tb == 0 & data_valid_tb == 1'b0)
+            $display("Reset Done");
+       else 
+            $display("Reset Failed");
+    end
+endtask
+
+task send_bit;
+    input bit_value;
+    begin
+       RX_IN_tb = bit_value;
+       #TX_CLK_PERIOD; 
+    end
+endtask
+
+function automatic calculate_parity;
+    input [7:0] in_data;
+    reg par_bit;
+    begin
+        if (PAR_EN_tb)
+            begin
+                if (PAR_TYP_tb) 
+                    begin 
+                        // Odd parity: result is 1 if the number of 1s is even
+                        par_bit = ~(^in_data);
+                    end 
+                else 
+                    begin
+                        // Even parity: result is 1 if the number of 1s is odd
+                        par_bit = ^(in_data);
+                    end
+            end
+        calculate_parity = par_bit;
+    end
+endfunction
+
+task send_uart_frame;
+    input [7:0] tx_data;
+    input tx_par_en;
+    input tx_par_typ;
+    input corner_case_par;
+    input corner_case_stp;
+    reg calculated_parity_bit;
+    integer i;
+    begin
+        operation_count = operation_count + 1;
+        PAR_EN_tb = tx_par_en;
+        PAR_TYP_tb = tx_par_typ;
+
+        $display("Start Transmitting UART Frame");
+
+        // Send Start bit
+        send_bit (1'b0);
+
+        // Send 8 bit data (LSB first)
+        for (i = 0; i < 8; i = i + 1)
+            begin
+                send_bit (tx_data[i]);
+            end
+        
+        // Send Parity bit if enabled
+        if (tx_par_en)
+            begin
+                calculated_parity_bit = calculate_parity (tx_data);
+                if (corner_case_par)
+                    begin
+                        $display("Error in parity bit returning to IDLE State");
+                        send_bit (~calculated_parity_bit);
+                    end
+                else
+                    begin
+                        send_bit (calculated_parity_bit);
+                    end
+            end
+
+        
+        // Send Stop bit 
+        if (corner_case_stp)
+            begin
+                $display ("Error in stop bit returning to IDLE State");
+                send_bit (1'b0);
+            end
+        else
+            begin
+                send_bit (1'b1);
+            end
+
+        // Checking Operation
+        if (P_DATA_tb == tx_data && data_valid_tb)
+            $display("Test Case %0d Succeeded", operation_count);
+        else
+            $display("Test Case %0d Failed", operation_count);
+    end
+endtask
+
+endmodule

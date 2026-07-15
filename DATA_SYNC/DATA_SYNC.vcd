@@ -1,0 +1,271 @@
+$date
+	Sat Sep 06 10:24:52 2025
+$end
+$version
+	ModelSim Version 10.5b
+$end
+$timescale
+	1ps
+$end
+
+$scope module DATA_SYNC_tb $end
+$var parameter 32 ! NUM_STAGES_tb $end
+$var parameter 32 " BUS_WIDTH_tb $end
+$var parameter 32 # CLK_PERIOD $end
+$var reg 1 $ RST_tb $end
+$var reg 1 % CLK_tb $end
+$var reg 8 & Unsync_bus_tb [7:0] $end
+$var reg 1 ' bus_enable_tb $end
+$var wire 1 ( sync_bus_tb [7] $end
+$var wire 1 ) sync_bus_tb [6] $end
+$var wire 1 * sync_bus_tb [5] $end
+$var wire 1 + sync_bus_tb [4] $end
+$var wire 1 , sync_bus_tb [3] $end
+$var wire 1 - sync_bus_tb [2] $end
+$var wire 1 . sync_bus_tb [1] $end
+$var wire 1 / sync_bus_tb [0] $end
+$var wire 1 0 enable_pulse_tb $end
+
+$scope task initialize $end
+$upscope $end
+
+$scope task reset $end
+$upscope $end
+
+$scope task apply_stimulus $end
+$var reg 8 1 Unsync_data [7:0] $end
+$var reg 1 2 bus_en $end
+$upscope $end
+
+$scope module DUT $end
+$var parameter 32 3 NUM_STAGES $end
+$var parameter 32 4 BUS_WIDTH $end
+$var wire 1 5 Unsync_bus [7] $end
+$var wire 1 6 Unsync_bus [6] $end
+$var wire 1 7 Unsync_bus [5] $end
+$var wire 1 8 Unsync_bus [4] $end
+$var wire 1 9 Unsync_bus [3] $end
+$var wire 1 : Unsync_bus [2] $end
+$var wire 1 ; Unsync_bus [1] $end
+$var wire 1 < Unsync_bus [0] $end
+$var wire 1 = bus_enable $end
+$var wire 1 > CLK $end
+$var wire 1 ? RST $end
+$var reg 8 @ sync_bus [7:0] $end
+$var reg 1 A enable_pulse $end
+$var reg 2 B enable_sync_reg [1:0] $end
+$var reg 1 C bus_enable_reg $end
+$var integer 32 D i $end
+$var wire 1 E enable_pulse_temp $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+1$
+0%
+b0 &
+0'
+bx @
+xA
+bx B
+xC
+bx 1
+x2
+b10 !
+b1000 "
+b1010 #
+b10 3
+b1000 4
+bx D
+x/
+x.
+x-
+x,
+x+
+x*
+x)
+x(
+x0
+xE
+0=
+0<
+0;
+0:
+09
+08
+07
+06
+05
+0>
+1?
+$end
+#5000
+1%
+1>
+bx0 B
+#10000
+0$
+0%
+0?
+0>
+b0 B
+b0 @
+0A
+0C
+0E
+0/
+0.
+0-
+0,
+0+
+0*
+0)
+0(
+00
+#15000
+1%
+1>
+#20000
+1$
+b10101010 1
+12
+0%
+1?
+0>
+b10101010 &
+1'
+1;
+19
+17
+15
+1=
+#25000
+1%
+1>
+b1 B
+#30000
+0%
+0>
+#35000
+1%
+1>
+b11 B
+1E
+#40000
+0%
+0>
+#45000
+1%
+1>
+1C
+1A
+b10101010 @
+0E
+10
+1.
+1,
+1*
+1(
+#50000
+0%
+0>
+#55000
+1%
+1>
+0A
+00
+#60000
+0%
+0>
+#65000
+1%
+1>
+#70000
+0%
+0>
+#75000
+b11111010 1
+02
+1%
+1>
+#80000
+0%
+0>
+b11111010 &
+0'
+18
+16
+0=
+#85000
+1%
+1>
+b10 B
+#90000
+0%
+0>
+#95000
+1%
+1>
+b0 B
+#100000
+0%
+0>
+#105000
+1%
+1>
+0C
+#110000
+b11000010 1
+12
+0%
+0>
+b11000010 &
+1'
+09
+08
+07
+1=
+#115000
+1%
+1>
+b1 B
+#120000
+0%
+0>
+#125000
+1%
+1>
+b11 B
+1E
+#130000
+0%
+0>
+#135000
+1%
+1>
+1C
+1A
+b11000010 @
+0E
+10
+0,
+0*
+1)
+#140000
+0%
+0>
+#145000
+1%
+1>
+0A
+00
+#150000
+0%
+0>
+#155000
+1%
+1>
+#160000
+0%
+0>

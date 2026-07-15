@@ -1,0 +1,1411 @@
+$date
+	Sun Aug 17 21:27:56 2025
+$end
+$version
+	ModelSim Version 10.5b
+$end
+$timescale
+	1ps
+$end
+
+$scope module UART_RX_tb $end
+$var parameter 32 ! TX_CLK_PERIOD $end
+$var parameter 32 " PRESCALE_VAL $end
+$var parameter 32 # RX_CLK_PERIOD $end
+$var reg 1 $ CLK_tb $end
+$var reg 1 % RST_tb $end
+$var reg 1 & RX_IN_tb $end
+$var reg 6 ' Prescale_tb [5:0] $end
+$var reg 1 ( PAR_EN_tb $end
+$var reg 1 ) PAR_TYP_tb $end
+$var wire 1 * data_valid_tb $end
+$var wire 1 + P_DATA_tb [7] $end
+$var wire 1 , P_DATA_tb [6] $end
+$var wire 1 - P_DATA_tb [5] $end
+$var wire 1 . P_DATA_tb [4] $end
+$var wire 1 / P_DATA_tb [3] $end
+$var wire 1 0 P_DATA_tb [2] $end
+$var wire 1 1 P_DATA_tb [1] $end
+$var wire 1 2 P_DATA_tb [0] $end
+$var reg 3 3 operation_count [2:0] $end
+
+$scope task initialize $end
+$upscope $end
+
+$scope task reset $end
+$upscope $end
+
+$scope task send_bit $end
+$var reg 1 4 bit_value $end
+$upscope $end
+
+$scope function calculate_parity $end
+$upscope $end
+
+$scope task send_uart_frame $end
+$var reg 8 5 tx_data [7:0] $end
+$var reg 1 6 tx_par_en $end
+$var reg 1 7 tx_par_typ $end
+$var reg 1 8 corner_case_par $end
+$var reg 1 9 corner_case_stp $end
+$var reg 1 : calculated_parity_bit $end
+$var integer 32 ; i $end
+$upscope $end
+
+$scope module DUT $end
+$var wire 1 < CLK $end
+$var wire 1 = RST $end
+$var wire 1 > RX_IN $end
+$var wire 1 ? Prescale [5] $end
+$var wire 1 @ Prescale [4] $end
+$var wire 1 A Prescale [3] $end
+$var wire 1 B Prescale [2] $end
+$var wire 1 C Prescale [1] $end
+$var wire 1 D Prescale [0] $end
+$var wire 1 E PAR_EN $end
+$var wire 1 F PAR_TYP $end
+$var wire 1 * data_valid $end
+$var wire 1 + P_DATA [7] $end
+$var wire 1 , P_DATA [6] $end
+$var wire 1 - P_DATA [5] $end
+$var wire 1 . P_DATA [4] $end
+$var wire 1 / P_DATA [3] $end
+$var wire 1 0 P_DATA [2] $end
+$var wire 1 1 P_DATA [1] $end
+$var wire 1 2 P_DATA [0] $end
+$var wire 1 G enable $end
+$var wire 1 H edge_cnt [4] $end
+$var wire 1 I edge_cnt [3] $end
+$var wire 1 J edge_cnt [2] $end
+$var wire 1 K edge_cnt [1] $end
+$var wire 1 L edge_cnt [0] $end
+$var wire 1 M bit_cnt [3] $end
+$var wire 1 N bit_cnt [2] $end
+$var wire 1 O bit_cnt [1] $end
+$var wire 1 P bit_cnt [0] $end
+$var wire 1 Q data_samp_en $end
+$var wire 1 R sampled_bit $end
+$var wire 1 S par_chk_en $end
+$var wire 1 T par_err $end
+$var wire 1 U strt_chk_en $end
+$var wire 1 V strt_glitch $end
+$var wire 1 W stp_chk_en $end
+$var wire 1 X stp_err $end
+$var wire 1 Y deser_en $end
+
+$scope module ebc1 $end
+$var wire 1 < clk $end
+$var wire 1 = reset $end
+$var wire 1 G enable $end
+$var wire 1 E par_en $end
+$var wire 1 ? prescale [5] $end
+$var wire 1 @ prescale [4] $end
+$var wire 1 A prescale [3] $end
+$var wire 1 B prescale [2] $end
+$var wire 1 C prescale [1] $end
+$var wire 1 D prescale [0] $end
+$var reg 5 Z edge_cnt [4:0] $end
+$var reg 4 [ bit_cnt [3:0] $end
+$var reg 4 \ frame_size [3:0] $end
+$upscope $end
+
+$scope module ds1 $end
+$var wire 1 < clk $end
+$var wire 1 = reset $end
+$var wire 1 > RX_IN $end
+$var wire 1 Q data_samp_en $end
+$var wire 1 H edge_cnt [4] $end
+$var wire 1 I edge_cnt [3] $end
+$var wire 1 J edge_cnt [2] $end
+$var wire 1 K edge_cnt [1] $end
+$var wire 1 L edge_cnt [0] $end
+$var wire 1 ? prescale [5] $end
+$var wire 1 @ prescale [4] $end
+$var wire 1 A prescale [3] $end
+$var wire 1 B prescale [2] $end
+$var wire 1 C prescale [1] $end
+$var wire 1 D prescale [0] $end
+$var reg 1 ] sampled_bit $end
+$var reg 1 ^ sample_1 $end
+$var reg 1 _ sample_2 $end
+$var reg 1 ` sample_3 $end
+$upscope $end
+
+$scope module pc1 $end
+$var wire 1 < clk $end
+$var wire 1 = reset $end
+$var wire 1 + P_DATA [7] $end
+$var wire 1 , P_DATA [6] $end
+$var wire 1 - P_DATA [5] $end
+$var wire 1 . P_DATA [4] $end
+$var wire 1 / P_DATA [3] $end
+$var wire 1 0 P_DATA [2] $end
+$var wire 1 1 P_DATA [1] $end
+$var wire 1 2 P_DATA [0] $end
+$var wire 1 E par_en $end
+$var wire 1 F par_typ $end
+$var wire 1 S par_chk_en $end
+$var wire 1 R sampled_bit $end
+$var wire 1 T par_err $end
+$var reg 1 a par_bit $end
+$upscope $end
+
+$scope module sc1 $end
+$var wire 1 < clk $end
+$var wire 1 = reset $end
+$var wire 1 U strt_chk_en $end
+$var wire 1 R sampled_bit $end
+$var reg 1 b strt_glitch $end
+$upscope $end
+
+$scope module sc2 $end
+$var wire 1 < clk $end
+$var wire 1 = reset $end
+$var wire 1 W stp_chk_en $end
+$var wire 1 R sampled_bit $end
+$var reg 1 c stp_err $end
+$upscope $end
+
+$scope module d1 $end
+$var wire 1 < clk $end
+$var wire 1 = reset $end
+$var wire 1 R sampled_bit $end
+$var wire 1 Y deser_en $end
+$var reg 8 d P_DATA [7:0] $end
+$var reg 3 e bit_count [2:0] $end
+$upscope $end
+
+$scope module fsm1 $end
+$var wire 1 < clk $end
+$var wire 1 = reset $end
+$var wire 1 E par_en $end
+$var wire 1 > RX_IN $end
+$var wire 1 H edge_cnt [4] $end
+$var wire 1 I edge_cnt [3] $end
+$var wire 1 J edge_cnt [2] $end
+$var wire 1 K edge_cnt [1] $end
+$var wire 1 L edge_cnt [0] $end
+$var wire 1 M bit_cnt [3] $end
+$var wire 1 N bit_cnt [2] $end
+$var wire 1 O bit_cnt [1] $end
+$var wire 1 P bit_cnt [0] $end
+$var wire 1 T par_err $end
+$var wire 1 V strt_glitch $end
+$var wire 1 X stp_err $end
+$var reg 1 f enable $end
+$var reg 1 g data_samp_en $end
+$var reg 1 h par_chk_en $end
+$var reg 1 i strt_chk_en $end
+$var reg 1 j stp_chk_en $end
+$var reg 1 k deser_en $end
+$var reg 1 l data_valid $end
+$var reg 3 m current_state [2:0] $end
+$var reg 3 n next_state [2:0] $end
+$var reg 4 o frame_size [3:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+
+$scope begin std $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0$
+1%
+1&
+b1000 '
+0(
+0)
+b0 3
+bx Z
+bx [
+bx \
+1]
+x^
+x_
+x`
+xa
+xb
+xc
+bx d
+bx e
+0f
+0g
+0h
+0i
+0j
+0k
+0l
+b0 m
+b0 n
+bx o
+x4
+bx 5
+x6
+x7
+x8
+x9
+x:
+b10000111101000 !
+b1000 "
+b10000111101 #
+bx ;
+0*
+x2
+x1
+x0
+x/
+x.
+x-
+x,
+x+
+0G
+xL
+xK
+xJ
+xI
+xH
+xP
+xO
+xN
+xM
+0Q
+1R
+0S
+xT
+0U
+xV
+0W
+xX
+0Y
+0F
+0E
+0D
+0C
+0B
+1A
+0@
+0?
+1>
+1=
+0<
+$end
+#542000
+1$
+1<
+b0 Z
+b0 [
+1^
+1_
+1`
+0L
+0K
+0J
+0I
+0H
+0P
+0O
+0N
+0M
+#1084000
+0$
+0<
+#1085000
+0%
+0=
+b0 \
+0a
+0b
+0c
+b0 d
+b0 e
+b0 o
+02
+01
+00
+0/
+0.
+0-
+0,
+0+
+1T
+0V
+0X
+#1626000
+1$
+1<
+#2168000
+0$
+0<
+#2170000
+1%
+b10100110 5
+06
+07
+08
+09
+b1 3
+04
+0&
+1=
+0>
+b1 n
+1g
+1f
+1G
+1Q
+#2710000
+1$
+1<
+b1010 \
+b1 Z
+b1010 o
+b1 m
+1L
+0f
+0g
+1f
+1g
+1i
+1U
+#3252000
+0$
+0<
+#3794000
+1$
+1<
+b10 Z
+1b
+0L
+1K
+1V
+#4336000
+0$
+0<
+#4878000
+1$
+1<
+b11 Z
+1L
+#5420000
+0$
+0<
+#5962000
+1$
+1<
+b100 Z
+0^
+0L
+0K
+1J
+#6504000
+0$
+0<
+#7046000
+1$
+1<
+b101 Z
+0_
+1L
+0]
+0R
+0T
+#7588000
+0$
+0<
+#8130000
+1$
+1<
+b110 Z
+0`
+0b
+0L
+1K
+0V
+#8672000
+0$
+0<
+#9214000
+1$
+1<
+b111 Z
+1^
+1_
+1`
+1L
+1]
+1R
+1T
+#9756000
+0$
+0<
+#10298000
+1$
+1<
+b0 Z
+b1 [
+1b
+0L
+0K
+0J
+1P
+1V
+b0 n
+#10840000
+0$
+0<
+#10850000
+b0 ;
+#11382000
+1$
+1<
+b1 Z
+b0 m
+1L
+b1 n
+0f
+0g
+0i
+1g
+1f
+0U
+#11924000
+0$
+0<
+#12466000
+1$
+1<
+b10 Z
+b1 m
+0L
+1K
+b0 n
+0f
+0g
+1f
+1g
+1i
+1U
+#13008000
+0$
+0<
+#13550000
+1$
+1<
+b11 Z
+b0 m
+1L
+b1 n
+0f
+0g
+0i
+1g
+1f
+0U
+#14092000
+0$
+0<
+#14634000
+1$
+1<
+b100 Z
+0^
+b1 m
+0L
+0K
+1J
+b0 n
+0f
+0g
+1f
+1g
+1i
+1U
+#15176000
+0$
+0<
+#15718000
+1$
+1<
+b101 Z
+0_
+b0 m
+1L
+b1 n
+0f
+0g
+0i
+1g
+1f
+0U
+0]
+0R
+0T
+#16260000
+0$
+0<
+#16802000
+1$
+1<
+b110 Z
+0`
+b1 m
+0L
+1K
+b0 n
+0f
+0g
+1f
+1g
+1i
+1U
+#17344000
+0$
+0<
+#17886000
+1$
+1<
+b111 Z
+1^
+1_
+1`
+0b
+b0 m
+1L
+0V
+b1 n
+0f
+0g
+0i
+1g
+1f
+0U
+1]
+1R
+1T
+#18428000
+0$
+0<
+#18970000
+1$
+1<
+b0 Z
+b10 [
+b1 m
+0L
+0K
+0J
+0P
+1O
+0f
+0g
+1f
+1g
+1i
+1U
+#19512000
+0$
+0<
+#19530000
+b1 ;
+14
+1&
+1>
+0f
+0g
+0i
+1f
+1g
+1i
+#20054000
+1$
+1<
+b1 Z
+1b
+1L
+1V
+#20596000
+0$
+0<
+#21138000
+1$
+1<
+b10 Z
+0L
+1K
+#21680000
+0$
+0<
+#22222000
+1$
+1<
+b11 Z
+1L
+#22764000
+0$
+0<
+#23306000
+1$
+1<
+b100 Z
+0L
+0K
+1J
+#23848000
+0$
+0<
+#24390000
+1$
+1<
+b101 Z
+1L
+#24932000
+0$
+0<
+#25474000
+1$
+1<
+b110 Z
+0L
+1K
+#26016000
+0$
+0<
+#26558000
+1$
+1<
+b111 Z
+1L
+#27100000
+0$
+0<
+#27642000
+1$
+1<
+b0 Z
+b11 [
+0L
+0K
+0J
+1P
+#28184000
+0$
+0<
+#28210000
+b10 ;
+#28726000
+1$
+1<
+b1 Z
+1L
+#29268000
+0$
+0<
+#29810000
+1$
+1<
+b10 Z
+0L
+1K
+#30352000
+0$
+0<
+#30894000
+1$
+1<
+b11 Z
+1L
+#31436000
+0$
+0<
+#31978000
+1$
+1<
+b100 Z
+0L
+0K
+1J
+#32520000
+0$
+0<
+#33062000
+1$
+1<
+b101 Z
+1L
+#33604000
+0$
+0<
+#34146000
+1$
+1<
+b110 Z
+0L
+1K
+#34688000
+0$
+0<
+#35230000
+1$
+1<
+b111 Z
+1L
+#35772000
+0$
+0<
+#36314000
+1$
+1<
+b0 Z
+b100 [
+0L
+0K
+0J
+0P
+0O
+1N
+#36856000
+0$
+0<
+#36890000
+b11 ;
+04
+0&
+0>
+0f
+0g
+0i
+1f
+1g
+1i
+#37398000
+1$
+1<
+b1 Z
+1L
+#37940000
+0$
+0<
+#38482000
+1$
+1<
+b10 Z
+0L
+1K
+#39024000
+0$
+0<
+#39566000
+1$
+1<
+b11 Z
+1L
+#40108000
+0$
+0<
+#40650000
+1$
+1<
+b100 Z
+0^
+0L
+0K
+1J
+#41192000
+0$
+0<
+#41734000
+1$
+1<
+b101 Z
+0_
+1L
+0]
+0R
+0T
+#42276000
+0$
+0<
+#42818000
+1$
+1<
+b110 Z
+0`
+0b
+0L
+1K
+0V
+#43360000
+0$
+0<
+#43902000
+1$
+1<
+b111 Z
+1^
+1_
+1`
+1L
+1]
+1R
+1T
+#44444000
+0$
+0<
+#44986000
+1$
+1<
+b0 Z
+b101 [
+1b
+0L
+0K
+0J
+1P
+1V
+#45528000
+0$
+0<
+#45570000
+b100 ;
+#46070000
+1$
+1<
+b1 Z
+1L
+#46612000
+0$
+0<
+#47154000
+1$
+1<
+b10 Z
+0L
+1K
+#47696000
+0$
+0<
+#48238000
+1$
+1<
+b11 Z
+1L
+#48780000
+0$
+0<
+#49322000
+1$
+1<
+b100 Z
+0^
+0L
+0K
+1J
+#49864000
+0$
+0<
+#50406000
+1$
+1<
+b101 Z
+0_
+1L
+0]
+0R
+0T
+#50948000
+0$
+0<
+#51490000
+1$
+1<
+b110 Z
+0`
+0b
+0L
+1K
+0V
+#52032000
+0$
+0<
+#52574000
+1$
+1<
+b111 Z
+1^
+1_
+1`
+1L
+1]
+1R
+1T
+#53116000
+0$
+0<
+#53658000
+1$
+1<
+b0 Z
+b110 [
+1b
+0L
+0K
+0J
+0P
+1O
+1V
+#54200000
+0$
+0<
+#54250000
+b101 ;
+14
+1&
+1>
+0f
+0g
+0i
+1f
+1g
+1i
+#54742000
+1$
+1<
+b1 Z
+1L
+#55284000
+0$
+0<
+#55826000
+1$
+1<
+b10 Z
+0L
+1K
+#56368000
+0$
+0<
+#56910000
+1$
+1<
+b11 Z
+1L
+#57452000
+0$
+0<
+#57994000
+1$
+1<
+b100 Z
+0L
+0K
+1J
+#58536000
+0$
+0<
+#59078000
+1$
+1<
+b101 Z
+1L
+#59620000
+0$
+0<
+#60162000
+1$
+1<
+b110 Z
+0L
+1K
+#60704000
+0$
+0<
+#61246000
+1$
+1<
+b111 Z
+1L
+#61788000
+0$
+0<
+#62330000
+1$
+1<
+b0 Z
+b111 [
+0L
+0K
+0J
+1P
+#62872000
+0$
+0<
+#62930000
+b110 ;
+04
+0&
+0>
+0f
+0g
+0i
+1f
+1g
+1i
+#63414000
+1$
+1<
+b1 Z
+1L
+#63956000
+0$
+0<
+#64498000
+1$
+1<
+b10 Z
+0L
+1K
+#65040000
+0$
+0<
+#65582000
+1$
+1<
+b11 Z
+1L
+#66124000
+0$
+0<
+#66666000
+1$
+1<
+b100 Z
+0^
+0L
+0K
+1J
+#67208000
+0$
+0<
+#67750000
+1$
+1<
+b101 Z
+0_
+1L
+0]
+0R
+0T
+#68292000
+0$
+0<
+#68834000
+1$
+1<
+b110 Z
+0`
+0b
+0L
+1K
+0V
+#69376000
+0$
+0<
+#69918000
+1$
+1<
+b111 Z
+1^
+1_
+1`
+1L
+1]
+1R
+1T
+#70460000
+0$
+0<
+#71002000
+1$
+1<
+b0 Z
+b1000 [
+1b
+0L
+0K
+0J
+0P
+0O
+0N
+1M
+1V
+#71544000
+0$
+0<
+#71610000
+b111 ;
+14
+1&
+1>
+0f
+0g
+0i
+1f
+1g
+1i
+#72086000
+1$
+1<
+b1 Z
+1L
+#72628000
+0$
+0<
+#73170000
+1$
+1<
+b10 Z
+0L
+1K
+#73712000
+0$
+0<
+#74254000
+1$
+1<
+b11 Z
+1L
+#74796000
+0$
+0<
+#75338000
+1$
+1<
+b100 Z
+0L
+0K
+1J
+#75880000
+0$
+0<
+#76422000
+1$
+1<
+b101 Z
+1L
+#76964000
+0$
+0<
+#77506000
+1$
+1<
+b110 Z
+0L
+1K
+#78048000
+0$
+0<
+#78590000
+1$
+1<
+b111 Z
+1L
+#79132000
+0$
+0<
+#79674000
+1$
+1<
+b0 Z
+b1001 [
+0L
+0K
+0J
+1P
+#80216000
+0$
+0<
+#80290000
+b1000 ;
+x4
+x&
+x>
+0f
+0g
+0i
+1f
+1g
+1i
+#80758000
+1$
+1<
+b1 Z
+1L
+#81300000
+0$
+0<
+#81842000
+1$
+1<
+b10 Z
+0L
+1K
+#82384000
+0$
+0<
+#82926000
+1$
+1<
+b11 Z
+1L
+#83468000
+0$
+0<
+#84010000
+1$
+1<
+b100 Z
+x^
+0L
+0K
+1J
+#84552000
+0$
+0<
+#85094000
+1$
+1<
+b101 Z
+x_
+1L
+0]
+0R
+0T
+#85636000
+0$
+0<
+#86178000
+1$
+1<
+b110 Z
+x`
+0b
+0L
+1K
+0V
+#86720000
+0$
+0<
+#87262000
+1$
+1<
+b111 Z
+1^
+1_
+1`
+1L
+1]
+1R
+1T
+#87804000
+0$
+0<
+#88346000
+1$
+1<
+b0 Z
+b1010 [
+1b
+0L
+0K
+0J
+0P
+1O
+1V
+#88888000
+0$
+0<
+#88970000
+14
+1&
+1>
+0f
+0g
+0i
+1f
+1g
+1i
+#89430000
+1$
+1<
+b1 Z
+1L
+#89972000
+0$
+0<
+#90514000
+1$
+1<
+b10 Z
+0L
+1K
+#91056000
+0$
+0<
+#91598000
+1$
+1<
+b11 Z
+1L
+#92140000
+0$
+0<
+#92682000
+1$
+1<
+b100 Z
+0L
+0K
+1J
+#93224000
+0$
+0<
+#93766000
+1$
+1<
+b101 Z
+1L
+#94308000
+0$
+0<
+#94850000
+1$
+1<
+b110 Z
+0L
+1K
+#95392000
+0$
+0<
+#95934000
+1$
+1<
+b111 Z
+1L
+#96476000
+0$
+0<
+#97018000
+1$
+1<
+b0 Z
+b0 [
+0L
+0K
+0J
+0O
+0M
+#97560000
+0$
+0<
